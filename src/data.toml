@@ -1,0 +1,20 @@
+[SYSTEM]
+setup = false
+riot_dir = 'C:\Valorant\Riot Games\Riot Client\RiotClientElectron\Riot Client.exe'
+
+[owner]
+private = false
+first_name = "Garrett"
+last_name = "Rumschik"
+alt_count = 2
+
+[owner.prefs]
+auto_login = false
+
+[alts.main]
+username = "RarkGrames69"
+password = "GarrettsValorant42069"
+
+[alts.smurf]
+username = "RarkGramess"
+password = "GarrettsValorant42069"
