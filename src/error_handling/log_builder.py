@@ -3,8 +3,12 @@ import sys
 from logging.handlers import TimedRotatingFileHandler
 
 DATEFMT = "%d/%b/%Y %H:%M:%S"
-FORMATTER = logging.Formatter( datefmt=DATEFMT, fmt="[%(asctime)s] : %(levelname)s : [%(name)s.%(funcName)s:%(lineno)d]  : %(message)s")
-LOG_FILE = "error_handling/logs/error.log"
+FORMATTER = logging.Formatter(
+    datefmt=DATEFMT,
+    fmt="[%(asctime)s] : %(levelname)s : \
+    [%(name)s.%(funcName)s:%(lineno)d]  : %(message)s",
+)
+LOG_FILE = "src/error_handling/logs/error.log"
 
 
 def stream_logger():
@@ -38,7 +42,7 @@ def log_file_handler():
     Returns:
     file_handler (TimedRotatingFileHandler): A configured TimedRotatingFileHandler for logging.
     """
-    file_handler = TimedRotatingFileHandler(LOG_FILE, when='midnight')
+    file_handler = TimedRotatingFileHandler(LOG_FILE, when="midnight")
     file_handler.setFormatter(FORMATTER)
     return file_handler
 
@@ -55,10 +59,10 @@ def base_logger(logger_name) -> logging.Logger:
     logger (logging.Logger): A configured logger with the specified name and handlers.
     """
     logger = logging.getLogger(logger_name)
-    
+
     logger.setLevel(logging.ERROR)
     logger.addHandler(stream_logger())
     logger.addHandler(log_file_handler())
-    
+
     logger.propagate = False
     return logger
